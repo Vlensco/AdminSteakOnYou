@@ -6,7 +6,6 @@ use App\Models\menuModel;
 use App\Models\menuPromo;
 use App\Models\menuTestimonial;
 use App\Models\menuReservation;
-use App\Models\userModel;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -63,29 +62,6 @@ class HomeController extends Controller
     public function login()
     {
         return view('login');
-    }
-
-    public function prosesLogin(Request $request)
-    {
-        $username = request('username');
-        $password = request('password');
-
-        $user = userModel::where('username', $username)->where('password', md5($password))->first();
-        if ($user) {
-            session()->put('username', $username);
-            session()->put('password', $password);
-            session()->flash('icon', 'success');
-            session()->flash('title', 'Berhasil');
-            session()->flash('message', 'Selamat Datang ' . $username);
-
-            return redirect('/');
-        } else {
-            session()->flash('icon', 'error');
-            session()->flash('title', 'Gagal');
-            session()->flash('message', 'Username atau password salah');
-
-            return redirect('/login');
-        }
     }
 
     public function logout()

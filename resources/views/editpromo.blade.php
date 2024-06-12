@@ -72,7 +72,7 @@
                                                     value="<?= $promo->gambar_promo ?>">
                                             </div>
                                         </div>
-                                        <a href="/menu" class="btn btn-primary mt-4" >Back</a>
+                                        <a href="/promo" class="btn btn-primary mt-4" >Back</a>
                                         <button class="btn btn-primary mt-4" type="submit">Submit</button>
                                     </form>
                                 </div>
